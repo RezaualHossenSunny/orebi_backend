@@ -24,14 +24,13 @@ const userlist =require ('../models/userScema');
 
 }
 function createproducatContorler(req,res){
-     const {name,description,image,store}=req.body;
+     const {name,description,store}=req.body;
     //  console.log(name,description,price,image,store);
 
 
     const producat = new producatSchema({
       name,
       description,
-      image,
       store
     })
     producat.save();
@@ -39,23 +38,28 @@ function createproducatContorler(req,res){
 }
 
 async function createvarientController(req,res){
-  const {name,description,qunatity,price,prodcat}=req.body;
+  const {color,qunatity,price,prodcat,Storoge,Ram,Size,image}=req.body;
+ console.log(req.file);
+//   const variant =new VariantScema({
+//     color,
+//     qunatity,
+//     price,
+//     prodcat,
+//     Storoge,
+//     Ram,
+//     Size,
+//     image
+//   })
+//   variant.save();
+//   res.json({sucsess:"varient create sucessfully done"});
 
-  const variant =new VariantScema({
-    name,
-    description,
-    qunatity,
-    price,
-    prodcat
-  })
-  variant.save();
-  res.json({sucsess:"varient create sucessfully done"});
 
-  await producatSchema.findByIdAndUpdate(
-    {_id:variant._id},
-    {$push:{variants:variant.prodcat}},
-   {new:true}
-  )
+// await producatSchema.findOneAndUpdate(
+//   {_id:variant.prodcat},
+//   {$push:{varient:variant._id}},
+//   {new:true}
+// )
+
 }
 
 module.exports ={prodacatcontroller, createproducatContorler,createvarientController}

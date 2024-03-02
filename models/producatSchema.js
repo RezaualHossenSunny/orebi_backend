@@ -10,17 +10,11 @@ const ProdactScema = new Schema({
         type:String,
         required:true
     },
-    image:{
-        type:String,
-        required:true
-    },
     varient:[
         {
             type:Schema.Types.ObjectId,
             ref:"Variant"
-
         }
-
     ],
     store:{
         type:Schema.Types.ObjectId,
