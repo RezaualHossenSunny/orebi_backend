@@ -1,4 +1,5 @@
 const VariantScema = require('../models/VariantScema');
+const dicsountScema = require('../models/dicsountScema');
 const producatSchema = require('../models/producatSchema');
 const userlist =require ('../models/userScema');
  async function prodacatcontroller(req,res,next){
@@ -39,27 +40,27 @@ function createproducatContorler(req,res){
 
 async function createvarientController(req,res){
   const {color,qunatity,price,prodcat,Storoge,Ram,Size,image}=req.body;
- console.log(req.file);
-//   const variant =new VariantScema({
-//     color,
-//     qunatity,
-//     price,
-//     prodcat,
-//     Storoge,
-//     Ram,
-//     Size,
-//     image
-//   })
-//   variant.save();
-//   res.json({sucsess:"varient create sucessfully done"});
+ console.log(req.file.filename);
+  const variant =new VariantScema({
+    color,
+    qunatity,
+    price,
+    prodcat,
+    Storoge,
+    Ram,
+    Size,
+    image:`http://localhost:3000/uploads/${req.file.filename}`
+  })
+  variant.save();
+ 
 
 
-// await producatSchema.findOneAndUpdate(
-//   {_id:variant.prodcat},
-//   {$push:{varient:variant._id}},
-//   {new:true}
-// )
-
+await producatSchema.findOneAndUpdate(
+  {_id:variant.prodcat},
+  {$push:{varient:variant._id}},
+  {new:true}
+)
+res.send({sucsess:"varient create sucessfully done"});
 }
 
 module.exports ={prodacatcontroller, createproducatContorler,createvarientController}

@@ -8,7 +8,7 @@ const VariantScema = new Schema({
   },
   price: {
     type: String,
-    required: true,
+    // required: true,
   },
   image:{
     type:String,
@@ -16,7 +16,7 @@ const VariantScema = new Schema({
 },
   qunatity: {
     type:String,
-    required:true
+    // required:true
   },
   Storoge:{
     type:String,
@@ -29,6 +29,7 @@ const VariantScema = new Schema({
   prodcat: {
     type: Schema.Types.ObjectId,
     ref: "product",
+    required:true
   },
   Size:String,
   creted: {
