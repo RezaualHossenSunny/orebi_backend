@@ -63,4 +63,9 @@ await producatSchema.findOneAndUpdate(
 res.send({sucsess:"varient create sucessfully done"});
 }
 
-module.exports ={prodacatcontroller, createproducatContorler,createvarientController}
+async function getallprodcatcontroller(req,res){
+  const prodacet = await producatSchema.find({})
+  res.send(prodacet)
+}
+
+module.exports ={prodacatcontroller, createproducatContorler,createvarientController,getallprodcatcontroller}
