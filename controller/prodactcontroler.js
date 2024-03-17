@@ -64,7 +64,7 @@ res.send({sucsess:"varient create sucessfully done"});
 }
 
 async function getallprodcatcontroller(req,res){
-  const prodacet = await producatSchema.find({})
+  const prodacet = await producatSchema.find({}).populate('store')
   res.send(prodacet)
 }
 
