@@ -26,5 +26,9 @@ store.save();
 res.json(store);
 
 }
+async function getallstoreControler (req,res){
+   const data = await Store.find({});
 
-module.exports=becomemercent;
+   res.send(data)
+}
+module.exports={becomemercent,getallstoreControler};
