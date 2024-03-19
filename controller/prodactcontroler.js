@@ -68,4 +68,9 @@ async function getallprodcatcontroller(req,res){
   res.send(prodacet)
 }
 
-module.exports ={prodacatcontroller, createproducatContorler,createvarientController,getallprodcatcontroller}
+async function delateprodacatController(req,res){
+   const data = await producatSchema.findByIdAndDelete(req.body.id);
+   res.send(data)
+} 
+
+module.exports ={prodacatcontroller, createproducatContorler,createvarientController,getallprodcatcontroller,delateprodacatController}
