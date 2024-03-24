@@ -1,5 +1,5 @@
 const express=require("express");
-const {prodacatcontroller,createproducatContorler, createvarientController, getallprodcatcontroller, delateprodacatController} = require("../../controller/prodactcontroler");
+const {prodacatcontroller,createproducatContorler, createvarientController, getallprodcatcontroller, delateprodacatController, getallvarianControler} = require("../../controller/prodactcontroler");
 const router =express.Router();
 const multer  = require('multer');
 const storage = multer.diskStorage({
@@ -18,6 +18,7 @@ const storage = multer.diskStorage({
 // router.post('/crateprodact', prodacatcontroller ,createproducatContorler);
 router.post('/crateprodact', createproducatContorler);
 router.post('/crateVarient',upload.single('avtar'),createvarientController );
+router.get('/allvariant',getallvarianControler)
 router.get('/getproducat',getallprodcatcontroller);
 router.post('/delateProdact',delateprodacatController)
 
