@@ -15,7 +15,8 @@ const storage = multer.diskStorage({
   const upload = multer({ storage: storage })
 
 
-router.post('/crateprodact', prodacatcontroller ,createproducatContorler);
+// router.post('/crateprodact', prodacatcontroller ,createproducatContorler);
+router.post('/crateprodact', createproducatContorler);
 router.post('/crateVarient',upload.single('avtar'),createvarientController );
 router.get('/getproducat',getallprodcatcontroller);
 router.post('/delateProdact',delateprodacatController)
