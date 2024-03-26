@@ -74,8 +74,10 @@ async function delateprodacatController(req,res){
 } 
 
 async function getallvarianControler(req,res){
-   const data = await VariantScema.find({});
+   const data = await VariantScema.find({}).populate("prodcat")
    res.send(data)
+
+
 }
 
 module.exports ={prodacatcontroller, createproducatContorler,createvarientController,getallprodcatcontroller,delateprodacatController,getallvarianControler}
