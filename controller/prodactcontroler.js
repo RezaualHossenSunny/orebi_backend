@@ -74,7 +74,7 @@ async function delateprodacatController(req,res){
 } 
 
 async function getallvarianControler(req,res){
-   const data = await VariantScema.find({}).populate("prodcat")
+   const data = await VariantScema.find({}).populate('prodcat')
    res.send(data)
 
 

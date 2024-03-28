@@ -28,7 +28,7 @@ const VariantScema = new Schema({
   },
   prodcat: {
     type: Schema.Types.ObjectId,
-    ref: "product",
+    ref: "prodecet",
     required:true
   },
   Size:String,
