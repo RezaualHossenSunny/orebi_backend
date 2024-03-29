@@ -42,7 +42,10 @@ var jwt = require('jsonwebtoken');
         user.save();
         var token = jwt.sign({email}, process.env.TOKEN_SECRET);
         senEmail(email ,'EMAIL VERIFICATION',emailVerificationTempalte(token));
-        res.send(user)
+        res.json({
+          success:"Registration SuccessFully  Done",
+          data:user
+        })
     });
     
   
