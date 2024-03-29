@@ -24,7 +24,7 @@ var jwt = require('jsonwebtoken');
   if(emailexsting){
     return  res.send({error: 'email is alredy in used'})
   }
-
+  var token = jwt.sign({email}, process.env.TOKEN_SECRET);
     bcrypt.hash(password, 10, function(err, hash) {
         const user=new userList({
             firstname,
@@ -36,14 +36,15 @@ var jwt = require('jsonwebtoken');
             postcode,
             divison,
             districet,
-            password:hash
+            password:hash,
+            token:email
         })
    
         user.save();
-        var token = jwt.sign({email}, process.env.TOKEN_SECRET);
+        // var token = jwt.sign({email}, process.env.TOKEN_SECRET);
         senEmail(email ,'EMAIL VERIFICATION',emailVerificationTempalte(token));
         res.json({
-          success:"Registration SuccessFully  Done",
+          success:"Registration SuccessFully  Done, Please Verify Your Email",
           data:user
         })
     });

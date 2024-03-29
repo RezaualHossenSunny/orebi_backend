@@ -46,7 +46,8 @@ const userSchema= new  Schema({
    type:String,
    default: "member",
    enum: ["admin","member","mercent"]
- }
+ },
+ token: String
        
 })
 

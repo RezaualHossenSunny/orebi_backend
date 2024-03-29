@@ -3,7 +3,7 @@ const userList = require('../models/userScema');
 
 async function emailverificationController(req,res){
   const {authorization}=req.headers;
-  console.log( "hhchc",authorization);
+  console.log( authorization);
 
 
  const decodet= jwt.verify(authorization, process.env.TOKEN_SECRET);
