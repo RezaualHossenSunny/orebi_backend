@@ -11,7 +11,7 @@ async  function verificationcontroler(req,res){
         {verified: true},
         {new:true}
        )
-       res.json({sucess:"Email Verifiation Done"})
+       res.redirect("http://localhost:5173/login")
  }
  else{
     res.json({error: "Error"})

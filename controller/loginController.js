@@ -14,7 +14,14 @@ if(!email){
     const isEmailExit= await userList.find({email});
     bcrypt.compare(password, isEmailExit[0].password).then(function(result) {
        if(result){
-        res.json({success:"login sucessfully done"})
+        // res.json({success:"login sucessfully done"})
+        console.log(isEmailExit);
+        res.json({
+            success:"login sucessfully done",
+             role:isEmailExit[0].role,
+             email:isEmailExit[0].email
+
+        })
        }else{
         res.json({error:"pasword is not match"})
        }
